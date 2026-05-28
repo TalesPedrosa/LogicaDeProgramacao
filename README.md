@@ -1,2 +1,4 @@
 # LogicaDeProgramacao
-Algoritmos Curso Técnico - 2ª Etapa
+Repositório criado para o envio das atividades do portfólio da 2ª etapa
+
+
