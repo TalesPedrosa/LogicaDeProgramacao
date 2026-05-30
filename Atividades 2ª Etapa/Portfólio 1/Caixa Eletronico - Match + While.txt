@@ -1,0 +1,67 @@
+algoritmo "caixaEletronico"
+
+var
+   saldo: real
+   opcao: inteiro
+   valor: real
+
+inicio
+
+   saldo <- 1000
+   opcao <- -1
+
+   enquanto opcao <> 0 faca
+
+      escreval("")
+      escreval("CAIXA ELETRÔNICO")
+      escreval("1 - consultar saldo")
+      escreval("2 - fazer saque")
+      escreval("3 - fazer deposito")
+      escreval("0 - sair")
+      escreva("escolha uma opcao: ")
+      leia(opcao)
+
+      escolha opcao
+
+         caso 1
+            escreval("seu saldo atual e: r$ ", saldo:0:2)
+
+         caso 2
+            escreva("digite o valor do saque: r$ ")
+            leia(valor)
+
+            se valor <= 0 entao
+               escreval("valor invalido. digite um valor maior que zero.")
+            senao
+               se valor > saldo entao
+                  escreval("saldo insuficiente para realizar o saque.")
+               senao
+                  saldo <- saldo - valor
+                  escreval("saque de r$ ", valor:0:2, " realizado com sucesso.")
+                  escreval("saldo restante: r$ ", saldo:0:2)
+               fimse
+            fimse
+
+         caso 3
+            escreva("digite o valor do deposito: r$ ")
+            leia(valor)
+
+            se valor <= 0 entao
+               escreval("valor invalido. digite um valor maior que zero.")
+            senao
+               saldo <- saldo + valor
+               escreval("deposito de r$ ", valor:0:2, " realizado com sucesso.")
+               escreval("saldo final: r$ ", saldo:0:2)
+            fimse
+
+         caso 0
+            escreval("sistema encerrado.")
+
+         outrocaso
+            escreval("opcao invalida. por favor, escolha uma opcao valida.")
+
+      fimescolha
+
+   fimenquanto
+
+fimalgoritmo
