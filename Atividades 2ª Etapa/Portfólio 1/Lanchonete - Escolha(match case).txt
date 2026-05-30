@@ -1,0 +1,35 @@
+algoritmo "MenuDaLanchonete"
+
+var
+   codigo: inteiro
+
+inicio
+   escreval("TERA LANCHES")
+   escreval("1 - Cachorro Quente (R$ 8,00)")
+   escreval("2 - Hambúrguer (R$ 15,00)")
+   escreval("3 - Misto Quente (R$ 10,00)")
+   escreval("4 - Refrigerante (R$ 5,00)")
+
+   escreva("Digite o código do item desejado: ")
+   leia(codigo)
+
+   escolha codigo
+
+      caso 1
+         escreval("Cachorro Quente - R$ 8,00")
+
+      caso 2
+         escreval("Hambúrguer - R$ 15,00")
+
+      caso 3
+         escreval("Misto Quente - R$ 10,00")
+
+      caso 4
+         escreval("Refrigerante - R$ 5,00")
+
+      outrocaso
+         escreval("Código inválido!")
+
+   fimescolha
+
+fimalgoritmo
