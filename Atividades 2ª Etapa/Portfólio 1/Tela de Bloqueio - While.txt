@@ -1,0 +1,19 @@
+algoritmo "desbloquear_tela"
+
+var
+   senha: caractere
+
+inicio
+
+   escreva("digite a senha para desbloquear a tela: ")
+   leia(senha)
+
+   enquanto senha <> "123456" faca
+      escreval("senha incorreta. tente novamente.")
+      escreva("digite a senha para desbloquear a tela: ")
+      leia(senha)
+   fimenquanto
+
+   escreval("tela desbloqueada. bem-vindo!")
+
+fimalgoritmo
