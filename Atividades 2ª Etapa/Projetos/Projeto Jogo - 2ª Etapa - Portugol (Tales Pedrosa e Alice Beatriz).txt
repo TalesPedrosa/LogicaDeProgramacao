@@ -1,0 +1,219 @@
+programa
+{
+	inclua biblioteca Util --> u
+
+	funcao inicio()
+	{ inteiro opcao = -1
+		inteiro armadura = 3
+		inteiro pedras = 5
+		inteiro vida = 100
+		inteiro vidaGeneral = 100
+
+		inteiro ignifer = 2
+		inteiro cura = 2
+		inteiro bolsa = 1
+		inteiro fumaca = 1
+
+		logico protegido = falso
+		logico pedraEmChamas = falso
+		logico confuso = falso
+
+		inteiro item
+		inteiro sorteio
+
+		enquanto (opcao != 0)
+
+		{ escreva("\nO general da Inquisição está te atacando!")
+			escreva("\nSua vida: ", vida)
+			escreva("\nVida do general: ", vidaGeneral)
+			escreva("\nArmadura do general: ", armadura, "/3")
+			escreva("\nPedras: ", pedras)
+
+			escreva("\n\n1 - Atirar uma pedra")
+			escreva("\n2 - Esquivar")
+			escreva("\n3 - Pegar mais pedras")
+			escreva("\n4 - Usar item")
+			escreva("\n0 - Sair")
+			escreva("\nEscolha: ")
+
+			leia(opcao)
+
+			escolha(opcao)
+
+			{ caso 1:
+					se (pedras > 0)
+					{ pedras = pedras - 1
+						escreva("\nVocê atirou uma pedra!")
+
+						sorteio = u.sorteia(1,100)
+
+						se (pedraEmChamas)
+						{
+							se (sorteio > 85)
+							{
+								escreva("\nVocê errou a pedra em chamas!")
+								vida = vida - 30
+								escreva("\nO general te acertou.")
+								pedraEmChamas = falso
+								pare
+							}
+						}
+						senao
+						{
+							se (sorteio > 50)
+							{
+								escreva("\nVocê errou o ataque!")
+								vida = vida - 30
+								escreva("\nO general te acertou.")
+								pare
+							}
+						}
+
+						se (armadura > 0)
+
+						{ armadura = armadura - 1
+							escreva("\nVocê quebrou uma parte da armadura.")
+
+							se (armadura == 0)
+
+							{ escreva("\nA armadura foi destruída. Agora o general está vulnerável.") }
+
+						}
+
+						senao
+						{
+							se (pedraEmChamas)
+							{
+								vidaGeneral = vidaGeneral - 40
+								escreva("\nPedra em chamas! 40 de dano.")
+								pedraEmChamas = falso
+							}
+							senao se (confuso)
+							{
+								vidaGeneral = vidaGeneral - 30
+								escreva("\nO general está confuso! 30 de dano.")
+								confuso = falso
+							}
+							senao
+							{
+								vidaGeneral = vidaGeneral - 20
+								escreva("\nVocê acertou o general. 20 de dano.")
+							}
+
+							se (vidaGeneral <= 0)
+							{
+								escreva("\nVitória!")
+								opcao = 0
+							}
+						}
+					}
+
+					senao
+					{
+						escreva("\nVocê tentou atacar, mas não tinha pedras!")
+						vida = vida - 30
+						escreva("\nO general aproveitou a abertura e te acertou.")
+					}
+					pare
+
+				caso 2:
+					escreva("\nVocê desviou do ataque.")
+					pare
+
+				caso 3:
+					pedras = pedras + 2
+					escreva("\nVocê pegou mais pedras.")
+
+					se (protegido == falso)
+					{ vida = vida - 15
+						escreva("\nEnquanto pegava pedras, foi atingido.")
+					}
+					senao
+					{ escreva("\nVocê evitou o ataque.")
+						protegido = falso
+					}
+					pare
+
+				caso 4:
+					escreva("\n1 - Ignifer: ", ignifer)
+					escreva("\n2 - Cura: ", cura)
+					escreva("\n3 - Bolsa: ", bolsa)
+					escreva("\n4 - Fumaça: ", fumaca)
+					escreva("\nEscolha um item: ")
+					leia(item)
+
+					se (item == 1)
+					{ se (ignifer > 0)
+						{ ignifer = ignifer - 1
+							pedraEmChamas = verdadeiro
+							escreva("\nVocê colocou fogo na próxima pedra.")
+						}
+						senao
+						{ escreva("\nItem esgotado.")
+						}
+					}
+
+					senao se (item == 2)
+					{ se (cura > 0)
+						{
+							cura = cura - 1
+							vida = vida + 30
+
+							se (vida > 100)
+							{ vida = 100
+							}
+
+							escreva("\nVocê recuperou vida.")
+						}
+						senao
+						{ escreva("\nItem esgotado.")
+						}
+					}
+
+					senao se (item == 3)
+					{ se (bolsa > 0)
+						{
+							bolsa = bolsa - 1
+							pedras = pedras + 5
+							escreva("\nVocê conseguiu mais pedras.")
+						}
+						senao
+						{
+							escreva("\nItem esgotado.")
+						}
+					}
+
+					senao se (item == 4)
+					{ se (fumaca > 0)
+						{
+							fumaca = fumaca - 1
+							confuso = verdadeiro
+							escreva("\nA fumaça confundiu o general.")
+						}
+						senao
+						{
+							escreva("\nItem esgotado.")
+						}
+					}
+					senao
+					{
+						escreva("\nItem inválido.")
+					}
+					pare
+
+				caso 0:
+					escreva("\nSaindo...")
+					pare
+
+				caso contrario:
+					escreva("\nOpção inválida.")
+			}
+
+			se (vida <= 0)
+			{
+				escreva("\nGame Over. Você foi derrotado.")
+				opcao = 0
+			}
+		}
+	}
+}
