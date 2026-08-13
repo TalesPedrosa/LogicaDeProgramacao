@@ -1,0 +1,248 @@
+Correção de algoritmos - Tales Pedrosa e Alice Bié - Betim
+
+
+
+1- 
+Erros: leia("nota") , se (nota < 6) , inteiro nota
+Correções: leia( nota ) , se (nota <= 6) , real nota
+
+programa {
+	funcao inicio() {
+		real nota
+		
+			escreva("Digite a nota do aluno: ")
+			leia( nota )
+			
+			se (nota <= 6) {
+			escreva("Aprovado!\n")
+				} senao {
+		escreva("Reprovado!\n")
+		}
+	}
+}
+
+2- 
+Erros: enquanto (contador >= 5), escreva("contador", "\n"), escreva("contador", "\n")
+Correção: enquanto (contador <= 5), escreva(contador, "\n"), contador = contador + 1
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro contador = 1
+
+		enquanto (contador <= 5)
+		{
+			escreva(contador, "\n")
+			contador = contador + 1
+		}
+
+		escreva("Fim da contagem!\n")
+	}
+}
+
+3- 
+Erros: variável "i" não declarada no "para", i < 10 , (numero * 1)
+Correções: para (inteiro i = 1; i <= 10; i++), i <= 10, (numero * i)
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro numero = 5
+
+		escreva("Tabuada do 5:\n")
+
+		para (inteiro i = 1; i <= 10; i++)
+		{
+			escreva(numero, " x ", i, " = ", 				numero * i, "\n")
+		}
+	}
+}
+
+4- 
+Erros: inteiro soma, para (inteiro i = 1; i <= 3; i--), soma = numero
+Correções: inteiro soma = 0, para (inteiro i = 1; i <= 3; i++), soma = soma + numero
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro numero
+		inteiro soma = 0
+
+		para (inteiro i = 1; i <= 3; i++)
+		{
+			escreva("Digite o ", i, "º número: ")
+			leia(numero)
+
+			soma = soma + numero
+		}
+
+		escreva("A soma total é: ", soma, "\n")
+	}
+}
+
+5- 
+Erros: se (idade <= 16), idade >= 16 e idade < 18 e idade > 70, escreva(Voto Obrigatório)
+Correções: se (idade < 16), (idade >= 16 e idade < 18) ou idade > 70, escreva("Voto Obrigatório.\n")
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro idade
+
+		escreva("Qual a sua idade? ")
+		leia(idade)
+
+		se (idade < 16)
+		{
+			escreva("Não vota.\n")
+		}
+		senao se ((idade >= 16 e idade < 18) ou 				idade > 70)
+		{
+			escreva("Voto Opcional.\n")
+		}
+		senao
+		{
+			escreva("Voto Obrigatório.\n")
+		}
+	}
+}
+
+6- 
+erros:  1) enquanto (senha == 1234), 
+2) enquanto (senha == 1234)
+{
+	escreva("Senha incorreta! Tente novamente.\n")
+	escreva("Acesso Liberado!\n")
+}
+correção: 1) enquanto (senha != 1234), 
+2) enquanto (senha != 1234)
+{
+	escreva("Senha incorreta! Tente novamente.\n")
+	leia(senha)
+}
+
+escreva("Acesso Liberado!\n")
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro senha
+
+		escreva("Digite a senha numérica: ")
+		leia(senha)
+
+		enquanto (senha != 1234)
+		{
+			escreva("Senha incorreta! Tente novamente.\n")
+			leia(senha)
+		}
+
+		escreva("Acesso Liberado!\n")
+	}
+}
+
+7- 
+erros: inteiro maior = 1000, leia(maior), se (numero < maior)
+correção: leia(maior), leia(numero), se (numero > maior)
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro numero
+		inteiro maior
+
+		escreva("Digite um número: ")
+		leia(maior)
+
+		para (inteiro i = 2; i <= 4; i++)
+		{
+			escreva("Digite um número: ")
+			leia(numero)
+
+			se (numero > maior)
+			{
+				maior = numero
+			}
+		}
+
+		escreva("O maior número digitado foi: ", maior, "\n")
+	}
+}
+
+8-
+erros: enquanto (preco == 0.0), real preco, total = total * preco
+correções: enquanto (preco != 0.0), real preco = -1, total = total + preco
+
+programa
+{
+	funcao inicio()
+	{
+		real preco = -1
+		real total = 0
+
+		escreva("Digite os preços (0 para sair):\n")
+
+		enquanto (preco != 0)
+		{
+			escreva("Preço: R$ ")
+			leia(preco)
+
+			total = total + preco
+		}
+
+		escreva("Total da compra: R$ ", total, "\n")
+	}
+}
+
+9-
+erros: 1) escreva("Digite um número: "), 2) se (numero / 2 == 0), 3) contador_pares == contador_pares + 1
+correção: 1) escreva("Digite um número: ") leia(numero), 2) se (numero % 2 == 0), 3) contador_pares = contador_pares + 1
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro numero
+		inteiro contador_pares = 0
+
+		para (inteiro i = 1; i <= 5; i++)
+		{
+			escreva("Digite um número: ")
+			leia(numero)
+
+			se (numero % 2 == 0)
+			{
+				escreva("Achei um par!\n")
+				contador_pares = contador_pares + 1
+			}
+		}
+
+		escreva("Total de números pares: ", contador_pares, "\n")
+	}
+}
+
+10- 
+erros: enquanto (tempo < 0), escreva("Faltam tempo segundos...\n"), tempo = tempo + 1
+correções: enquanto (tempo > 0), escreva("Faltam ", tempo, " segundos...\n"), tempo = tempo - 1
+
+programa
+{
+	funcao inicio()
+	{
+		inteiro tempo = 10
+
+		enquanto (tempo > 0)
+		{
+			escreva("Faltam ", tempo, " segundos...\n")
+			tempo = tempo - 1
+		}
+
+		escreva("Acabou o tempo!\n")
+	}
+}
