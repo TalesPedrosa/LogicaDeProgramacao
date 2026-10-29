@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Minha primeira aula de JS</title>
+
+</head>
+
+<body>
+
+  <h1>Aula de JavaScript</h1>
+
+  <script>
+
+    // a partir daqui o navegador interpreta
+
+    // o conteudo da tag script
+
+    let nome = prompt("Qual é o seu nome?");
+    console.log("Olá, " + nome + "!");
+
+    //pedi o nome em uma espécie de "input" (acabei de descobrir) e exibi no console
+
+    let nota1 = 6;
+    let nota2 = 9;
+    let nota3 = 8;
+    console.log("Nota 1: " + nota1 + ", Nota 2: " + nota2 + ", Nota 3: " + nota3);
+
+    //declarei as notas e exibi no console
+
+    let media = (nota1 + nota2 + nota3) / 3;
+    console.log("Média: " + media);
+    // fiz a media e exibi no console
+
+    // let media = (parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3)) / 3;
+    // pesquisei e vi que o parsefloat meio que transforma oq for digitado pra float
+
+    if (media >= 7) {
+      console.log("Aprovado");
+    } else {
+      console.log("Reprovado");
+    }
+
+  </script>
+
+</body>
+
+</html>
